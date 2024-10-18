@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+        <header>
+          <h1 class="logo">
+            <img class="logo-image" src="./resources/sb-nobackground.png" alt="">
+          </h1>
+        </header>
+        <nav>
+          <ul>
+            <li>
+              <a class="boton-menu boton-volver" href="./index.html">
+                <i class="bi bi-arrow-90deg-left"></i> Add more items to the
+                cart <span class="numero">0</span>
+              </a>
+            </li>
+            <li>
+              <a class="boton-menu boton-carrito active" href="./carrito.html">
+                <i class="bi bi-cart"></i> Cart <span class="numero">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <footer>
+          <p class="texto-footer">© Sally Bee PH</p>
+        </footer>
+      </aside>
+      <main>
+        <h2 class="titulo-principal">Cart</h2>
+        <div class="contenedor-carrito">
+          <p class="carrito-vacio">
+            Your cart is empty <i class="bi bi-emoji-frown"></i>
+          </p>
+          <div class="carrito-productos">
+            <div class="carrito-producto">
+              <img src="./resources/photographies/_MG_2719.jpg" alt="" />
+              <div class="carrito-producto-titulo">
+                <small>Title</small>
+                <h3>Foto1</h3>
+              </div>
+              <div class="carrito-producto-cantidad">
+                <small>Quantity</small>
+                <p>1</p>
+              </div>
+              <div class="carrito-producto-precio">
+                <small>Price</small>
+                <p>$10</p>
+              </div>
+              <div class="carrito-producto-subtotal">
+                <small>Subtotal</small>
+                <p>$10</p>
+              </div>
+              <button class="carrito-producto-eliminar">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+            <div class="carrito-producto">
+              <img src="./resources/photographies/_MG_2719.jpg" alt="" />
+              <div class="carrito-producto-titulo">
+                <small>Title</small>
+                <h3>Foto2</h3>
+              </div>
+              <div class="carrito-producto-cantidad">
+                <small>Quantity</small>
+                <p>1</p>
+              </div>
+              <div class="carrito-producto-precio">
+                <small>Price</small>
+                <p>$10</p>
+              </div>
+              <div class="carrito-producto-subtotal">
+                <small>Subtotal</small>
+                <p>$10</p>
+              </div>
+              <button class="carrito-producto-eliminar">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="carrito-acciones">
+            <div class="carrito-acciones-izquierda">
+              <button class="carrito-acciones-vaciar">Empty cart</button>
+            </div>
+            <div class="carrito-acciones-derecha"></div>
+            <div class="carrito-acciones-total">
+              <p>Total:</p>
+              <p id="total">$20</p>
+            </div>
+            <button class="carrito-acciones-comprar">Buy now</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/carrito.js"></script>
+  </body>
+</html>
