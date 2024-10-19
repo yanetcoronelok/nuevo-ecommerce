@@ -64,8 +64,9 @@ const PRODUCTOS = [
 const CONTENEDOR_PRODUCTOS = document.querySelector("#contenedor-productos");
 const BOTONES_CATEGORIAS = document.querySelectorAll(".boton-categoria");
 const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
 
-function cargarProductos(productosElegidos){
+function cargarProductos(productosElegidos) {
 
     CONTENEDOR_PRODUCTOS.innerHTML = "";
 
@@ -82,30 +83,61 @@ function cargarProductos(productosElegidos){
                     </div>
                  `;
 
-                 CONTENEDOR_PRODUCTOS.append(div);
+        CONTENEDOR_PRODUCTOS.append(div);
     })
-
+    actualizarBotonesAgregar();
 }
 
 cargarProductos(PRODUCTOS);
 
 BOTONES_CATEGORIAS.forEach(boton => {
-    boton.addEventListener("click", (e) =>{
-        debugger
+    boton.addEventListener("click", (e) => {
+
         BOTONES_CATEGORIAS.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
-        if (e.currentTarget.id != "todos"){
+        if (e.currentTarget.id != "todos") {
             const PRODUCTO_CATEGORIA = PRODUCTOS.find(producto => producto.categoria.id === e.currentTarget.id);
-            
+
             TITULO_PRINCIPAL.innerText = PRODUCTO_CATEGORIA.categoria.nombre;
 
-            const PRODUCTOS_BOTON = PRODUCTOS.filter(producto => producto.categoria.id ===e.currentTarget.id);
+            const PRODUCTOS_BOTON = PRODUCTOS.filter(producto => producto.categoria.id === e.currentTarget.id);
             cargarProductos(PRODUCTOS_BOTON);
-    } else {
-        TITULO_PRINCIPAL.innerText = "All Products";
-        cargarProductos(PRODUCTOS);
-    }
+        } else {
+            TITULO_PRINCIPAL.innerText = "All Products";
+            cargarProductos(PRODUCTOS);
+        }
     })
 })
+
+
+function actualizarBotonesAgregar() {
+    botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    });
+}
+
+const PRODUCTOS_EN_CARRITO = [];
+
+function agregarAlCarrito(e) {
+
+    const idBoton = e.currentTarget.id;
+    const PRODUCTO_AGREGADO = PRODUCTOS.find(producto => producto.id === idBoton);
+
+    if (PRODUCTOS_EN_CARRITO.some(producto => producto.id === idBoton)) {
+
+        const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === idBoton);
+        PRODUCTOS_EN_CARRITO[INDEX].cantidad++;
+
+    } else {
+        PRODUCTO_AGREGADO.cantidad = 1;
+        PRODUCTOS_EN_CARRITO.push(PRODUCTO_AGREGADO);
+
+    }
+
+
+  
+}
 
